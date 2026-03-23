@@ -2,6 +2,10 @@ package com.example.notesapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Primary = Color(0xFF6750A4)
+val Secondary = Color(0xFF03DAC5)
+val Background = Color(0xFFF5F5F5)
+val CardColor = Color(0xFFFFFFFF)
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
