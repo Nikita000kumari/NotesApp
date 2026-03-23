@@ -6,8 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 
 import androidx.compose.foundation.layout.*
+import androidx.navigation.NavController
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.navigation.compose.*
+import androidx.compose.foundation.clickable
+import android.net.Uri
+
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -17,16 +22,73 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.tooling.preview.Preview
 
+import androidx.room.Room
+
 import com.example.notesapp.ui.theme.NotesAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            NoteDatabase::class.java,
+            "notes_db"
+        ).build()
+
         enableEdgeToEdge()
+
         setContent {
+
             NotesAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                   NotesScreen(Modifier.padding(innerPadding))
+
+                val navController = rememberNavController()
+
+                Scaffold(
+                    floatingActionButton = {
+                        FloatingActionButton(
+                            onClick = {
+                                navController.navigate("add")
+                            }
+                        ) {
+                            Text("+")
+                        }
+                    }
+                ) { innerPadding ->
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = "list",
+                        modifier = Modifier.padding(innerPadding)
+                    ) {
+
+                        composable("list") {
+                            NotesScreen(
+                                dao = db.noteDao(),
+                                navController = navController
+                            )
+                        }
+
+                        composable("add") {
+                            AddNoteScreen(
+                                navController = navController,
+                                dao = db.noteDao()
+                            )
+                        }
+
+                        composable("edit/{id}/{text}") { backStackEntry ->
+
+                            val id = backStackEntry.arguments?.getString("id")?.toInt() ?: 0
+                            val text = backStackEntry.arguments?.getString("text") ?: ""
+
+                            AddNoteScreen(
+                                navController = navController,
+                                dao = db.noteDao(),
+                                noteId = id,
+                                existingText = text
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -34,10 +96,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun NotesScreen(modifier:Modifier = Modifier) {
-
+    fun NotesScreen(
+        dao: NoteDao,
+        navController: NavController,
+        modifier: Modifier = Modifier
+    ) {
     var noteText by remember { mutableStateOf("") }
-    val notes = remember { mutableStateListOf<String>() }
+
+    val viewModel: NotesViewModel =
+        androidx.lifecycle.viewmodel.compose.viewModel(
+            factory = NotesViewModelFactory(dao)
+        )
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -64,17 +134,18 @@ fun NotesScreen(modifier:Modifier = Modifier) {
         Button(
             onClick = {
                 if (noteText.isNotBlank()) {
-                    notes.add(noteText)
+                    viewModel.addNote(noteText)
                     noteText = ""
                 }
             }
         ) {
             Text("Add Note")
         }
+
         Spacer(modifier = Modifier.height(16.dp))
-        // list display code
+
         LazyColumn {
-            itemsIndexed(notes) { index, note ->
+            itemsIndexed(viewModel.notes) { index, note ->
 
                 Row(
                     modifier = Modifier
@@ -85,13 +156,17 @@ fun NotesScreen(modifier:Modifier = Modifier) {
                 ) {
 
                     Text(
-                        text = "${index + 1}. $note",
-                        style = MaterialTheme.typography.bodyLarge
+                        text = "${index + 1}. ${note.text}",
+                        modifier = Modifier.clickable {
+                            navController.navigate(
+                                "edit/${note.id}/${Uri.encode(note.text)}"
+                            )
+                        }
                     )
 
                     Button(
                         onClick = {
-                            notes.removeAt(index)
+                            viewModel.deleteNote(note)
                         }
                     ) {
                         Text("Delete")
@@ -101,10 +176,58 @@ fun NotesScreen(modifier:Modifier = Modifier) {
         }
     }
 }
+@Composable
+fun AddNoteScreen(
+    navController: NavController,
+    dao: NoteDao,
+    noteId: Int = 0,
+    existingText: String = ""
+) {
+    var noteText by remember { mutableStateOf(existingText) }
+        val viewModel: NotesViewModel =
+            androidx.lifecycle.viewmodel.compose.viewModel(
+                factory = NotesViewModelFactory(dao)
+            )
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+
+            Text("Add Note", style = MaterialTheme.typography.headlineMedium)
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            TextField(
+                value = noteText,
+                onValueChange = { noteText = it },
+                placeholder = { Text("Enter note") },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                onClick = {
+                    if (noteId == 0) {
+                        viewModel.addNote(noteText)
+                    } else {
+                        viewModel.updateNote(
+                            Note(id = noteId, text = noteText)
+                        )
+                    }
+                    navController.popBackStack()
+                }
+            ) {
+                Text("Save")
+            }
+        }
+    }
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun PreviewNotesScreen() {
     NotesAppTheme {
-        NotesScreen()
+        Text("Preview not available with DB")
     }
 }
