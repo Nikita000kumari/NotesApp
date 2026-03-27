@@ -1,4 +1,5 @@
-# 📝 Notes App (Jetpack Compose)
+# 📝 Notes App 
+
 
 A modern Notes App built using **Kotlin, Jetpack Compose, and Room Database**.
 
