@@ -51,13 +51,6 @@ Example:
 
 ---
 
-## ⚠️ Note
-
-This is a **practice project**, created to improve Android development skills.
-It is not intended for production use.
-
----
-
 ## 🚀 Future Improvements
 
 * Swipe to delete
