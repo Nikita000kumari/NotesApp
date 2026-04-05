@@ -19,12 +19,11 @@ This project was developed as a **practice project** to learn Android developmen
 
 ## 📸 Screenshots
 
- ![App Screenshot](homeNotesapp.jpeg)
-
- ![App Screenshot](addNOTESapp.jpeg)
-
- ![App Screenshot](searchNOTESapp.jpeg)
-
+ <p align="center">
+  <img src="homeNotesapp.jpeg" width="250" />
+  <img src="addNOTESapp.jpeg" width="250" />
+  <img src="searchNOTESapp.jpeg" width="250" />
+</p>
 
 ## 🛠 Tech Stack
 
