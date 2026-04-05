@@ -21,14 +21,14 @@ This project was developed as a **practice project** to learn Android developmen
 
 Example:
 
-```md![homeNOTESapp](https://github.com/user-attachments/assets/f688efa9-beaf-408e-ba15-e263ebff7ee8)
+```md
 
-[Home]
+[Home] https://github.com/Nikita000kumari/NotesApp/blob/master/homeNOTESapp.jpeg
 
 
-![Add](screenshots/add.png)![addNOTESapp](https://github.com/user-attachments/assets/ae38f746-832f-4d63-ac5b-661221b5dead)
+![Add] https://github.com/Nikita000kumari/NotesApp/blob/master/addNOTESapp.jpeg
 
-![Search](screenshots/edit.png)![searchNOTESapp](https://github.com/user-attachments/assets/a366b152-427d-44e2-af30-ff5fce8c2117)
+![Search] https://github.com/Nikita000kumari/NotesApp/blob/master/searchNOTESapp.jpeg
 
 ```
 
