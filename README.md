@@ -21,12 +21,15 @@ This project was developed as a **practice project** to learn Android developmen
 
 Example:
 
-```md
-[Home]<img width="1080" height="2347" alt="image" src="https://github.com/user-attachments/assets/3d52cb6c-0ab1-443f-9c0a-35e1a7020fb7" />
+```md![homeNOTESapp](https://github.com/user-attachments/assets/f688efa9-beaf-408e-ba15-e263ebff7ee8)
+
+[Home]
 
 
-![Add](screenshots/add.png)
-![Edit](screenshots/edit.png)
+![Add](screenshots/add.png)![addNOTESapp](https://github.com/user-attachments/assets/ae38f746-832f-4d63-ac5b-661221b5dead)
+
+![Search](screenshots/edit.png)![searchNOTESapp](https://github.com/user-attachments/assets/a366b152-427d-44e2-af30-ff5fce8c2117)
+
 ```
 
 ---
