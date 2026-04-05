@@ -22,7 +22,7 @@ This project was developed as a **practice project** to learn Android developmen
 Example:
 
 ```md
-![Home]<img width="1080" height="2347" alt="image" src="https://github.com/user-attachments/assets/3d52cb6c-0ab1-443f-9c0a-35e1a7020fb7" />
+[Home]<img width="1080" height="2347" alt="image" src="https://github.com/user-attachments/assets/3d52cb6c-0ab1-443f-9c0a-35e1a7020fb7" />
 
 
 ![Add](screenshots/add.png)
