@@ -19,20 +19,12 @@ This project was developed as a **practice project** to learn Android developmen
 
 ## 📸 Screenshots
 
-Example:
+https://github.com/Nikita000kumari/NotesApp/blob/master/homeNOTESapp.jpeg
 
-```md
+https://github.com/Nikita000kumari/NotesApp/blob/master/addNOTESapp.jpeg
 
-[Home] https://github.com/Nikita000kumari/NotesApp/blob/master/homeNOTESapp.jpeg
+https://github.com/Nikita000kumari/NotesApp/blob/master/searchNOTESapp.jpeg
 
-
-![Add] https://github.com/Nikita000kumari/NotesApp/blob/master/addNOTESapp.jpeg
-
-![Search] https://github.com/Nikita000kumari/NotesApp/blob/master/searchNOTESapp.jpeg
-
-```
-
----
 
 ## 🛠 Tech Stack
 
