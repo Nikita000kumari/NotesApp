@@ -20,7 +20,7 @@ This project was developed as a **practice project** to learn Android developmen
 ## 📸 Screenshots
 
  <p align="center">
-  <img src="homeNotesapp.jpeg" width="250" />
+  <img src="homeNOTESapp.jpeg" width="250" />
   <img src="addNOTESapp.jpeg" width="250" />
   <img src="searchNOTESapp.jpeg" width="250" />
 </p>
