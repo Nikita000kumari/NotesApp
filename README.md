@@ -10,7 +10,6 @@ This project was developed as a **practice project** to learn Android developmen
 ## 🚀 Features
 
 * ✍️ Add notes
-* 📝 Edit notes
 * ❌ Delete notes
 * 🔍 Search notes
 * 💾 Persistent storage using Room Database
@@ -20,12 +19,11 @@ This project was developed as a **practice project** to learn Android developmen
 
 ## 📸 Screenshots
 
-(Add your screenshots here)
-
 Example:
 
 ```md
-![Home](screenshots/home.png)
+![Home]![WhatsApp Image 2026-04-05 at 5 33 27 PM](https://github.com/user-attachments/assets/04cf3f12-765b-4083-b981-d16a0f2a7a5e)
+
 ![Add](screenshots/add.png)
 ![Edit](screenshots/edit.png)
 ```
