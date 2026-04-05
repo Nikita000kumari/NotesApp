@@ -19,11 +19,11 @@ This project was developed as a **practice project** to learn Android developmen
 
 ## 📸 Screenshots
 
-https://github.com/Nikita000kumari/NotesApp/blob/master/homeNOTESapp.jpeg
+ ![App Screenshot](homeNotesapp.jpeg)
 
-https://github.com/Nikita000kumari/NotesApp/blob/master/addNOTESapp.jpeg
+ ![App Screenshot](addNOTESapp.jpeg)
 
-https://github.com/Nikita000kumari/NotesApp/blob/master/searchNOTESapp.jpeg
+ ![App Screenshot](searchNOTESapp.jpeg)
 
 
 ## 🛠 Tech Stack
